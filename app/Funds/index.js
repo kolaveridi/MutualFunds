@@ -4,9 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {
     connect
 } from 'react-redux';
-import {
-    getAllFunds
-} from './actions';
+import getAllFunds from './actions';
 
 
 function mapStateToProps(state) {
@@ -21,7 +19,7 @@ function mapDispatchToProps(dispatch) {
         getAllFunds: (options = {}) => {
              console.log('Inside dispatch');
             dispatch(getAllFunds(options));
-        },
+        }
 
     };
 }
@@ -30,18 +28,15 @@ function mapDispatchToProps(dispatch) {
 
 
  class Funds extends React.Component{
-    constructor(props){
-        super(props);
-
-    }
-    ComponentWillMount(){
-        console.log('loloololol');
+    componentDidMount(){
         this.props.getAllFunds();
-
+        console.log("lolololo");
     }
+
 
 
      render(){
+         console.log('wow');
          console.log('this.props',this.props);
          return(
              <View style={styles.container}>

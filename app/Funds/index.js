@@ -5,10 +5,9 @@ import {
     connect
 } from 'react-redux';
 import getAllFunds from './actions';
-
+import ListFunds from './Components/ListFunds';
 
 function mapStateToProps(state) {
-    console.log('state is ',state.funds);
     return {
         funds: state.funds
     };
@@ -25,26 +24,23 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-
-
  class Funds extends React.Component{
     componentDidMount(){
-        this.props.getAllFunds();
-        console.log("lolololo");
+        this.loadFunds();
+    }
+    loadFunds=()=>{
+        const{pending}=this.props.funds.funds;
+        if(!pending){
+            this.props.getAllFunds();
+        }
     }
 
-
-
      render(){
-         console.log('wow');
-         console.log('this.props',this.props);
+         const {funds}=this.props.funds.funds.data;
          return(
              <View style={styles.container}>
-               <Text>This is working </Text>
-               <Text>This is working </Text>
-               <Text>This is working </Text>
-               <Text>This is working </Text>
-               <Text>This is working </Text>
+                <ListFunds funds={funds}/>
+
              </View>
          )
      }

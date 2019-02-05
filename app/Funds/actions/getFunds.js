@@ -10,6 +10,7 @@ import {
 from '../../../config';
 const getUrl = (options) => {
     let url ='https://api.piggy.co.in/v1/mf/?key=118656INF204K01E05';
+    return url;
 
 };
 import callApi from '../../../callApi';

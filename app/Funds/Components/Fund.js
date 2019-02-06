@@ -5,7 +5,7 @@ class Fund extends React.Component{
     render(){
         const {expense_ratio,money_control_code,plan_type,nav,last_day_nav,dividend_type_text,launch_date}=this.props.data;
         return(
-            <ScrollView >
+
 
             <View style={styles.container}>
                <Text>MoneyControlCode : {money_control_code}</Text>
@@ -16,7 +16,7 @@ class Fund extends React.Component{
                 <Text>Dividend Type:{dividend_type_text}</Text>
                 <Text>Launch Date:{launch_date}</Text>
              </View>
-             </ScrollView>
+
         );
     }
 }

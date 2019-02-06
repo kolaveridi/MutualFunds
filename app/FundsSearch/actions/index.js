@@ -1,7 +1,7 @@
 import {
-    GET_ALL_FUNDS_PENDING,
-    GET_ALL_FUNDS,
-    GET_ALL_FUNDS_FAILED,
+    GET_ALL_FUNDS_PENDING_ON_SAERCH,
+    GET_ALL_FUNDS_FAILED_ON_SAERCH,
+    GET_ALL_FUNDS_FAILED_ON_SAERCH,
 } from '../actionTypes';
 import {
     REQUESTS,
@@ -14,28 +14,28 @@ const getUrl = (options) => {
 
 };
 import callApi from '../../../callApi';
-const getAllFunds = (options = {}) => {
+const getAllFundsOnSearch = (options = {}) => {
     const url = getUrl(options);
     console.log('url',url);
     return function(dispatch) {
         dispatch(
-            requestAllFunds(options)
+            requestAllFundsOnSearch(options)
         );
         callApi(url, REQUESTS.GET, HEADERS).then((response) => {
             console.log('response',response);
             dispatch(
-                receivedAllFunds(response)
+                receivedAllFundsOnSearch(response)
             );
-        }).catch(error => dispatch(requestAllFundsFailed(error.toString())));
+        }).catch(error => dispatch(requestAllFundsFailedOnSearch(error.toString())));
     };
 };
 
 export default getAllFunds;
 
 
-const requestAllFunds = (options) => {
+const requestAllFundsOnSearch = (options) => {
     return {
-        type: GET_ALL_FUNDS_PENDING,
+        type: GET_ALL_FUNDS_PENDING_ON_SAERCH,
         payload: {
             options
         }
@@ -43,9 +43,9 @@ const requestAllFunds = (options) => {
 };
 
 
-const receivedAllFunds = (response) => {
+const receivedAllFundsOnSearch = (response) => {
     return {
-        type: GET_ALL_FUNDS,
+        type: GET_ALL_FUNDS_ON_SEARCH,
         payload: {
             response
         }
@@ -53,9 +53,9 @@ const receivedAllFunds = (response) => {
 };
 
 
-const requestAllFundsFailed = (error) => {
+const requestAllFundsFailedOnSearch = (error) => {
     return {
-        type: GET_ALL_FUNDS_FAILED,
+        type: GET_ALL_FUNDS_FAILED_ON_SAERCH,
         error
     };
 };

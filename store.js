@@ -9,9 +9,12 @@ import {
 
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import FundsReducer from './app/Funds/reducers';
+import FundsReducer from './app/Funds/reducers;
+import FundsSearchReducer from './app/FundsSearchReducer/reducers';
+
 const reducer = combineReducers({
-    funds:FundsReducer
+    funds:FundsReducer,
+    searchfunds:FundsSearchReducer
 });
 
 const store = createStore(

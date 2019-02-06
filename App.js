@@ -3,23 +3,12 @@ import { Provider } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
 import store from './store';
 import Funds from './app/Funds';
+import SearchFunds from './app/FundsSearch';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'blue'}}>
-        <Text>Home!</Text>
-      </View>
-    );
-  }
-}
-
-
 
 const Tab =  createBottomTabNavigator({
   Home: Funds,
-  Settings: HomeScreen,
+  Settings: SearchFunds,
 });
 const TabNavigation=createAppContainer(Tab);
 

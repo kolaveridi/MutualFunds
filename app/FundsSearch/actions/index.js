@@ -16,14 +16,13 @@ const getUrl = (options) => {
 import callApi from '../../../callApi';
 const getAllFundsOnSearch = (options = {},data) => {
     const url = getUrl(options);
-    console.log('url',url);
-    console.log('data inside actio is ',data);
+
     return function(dispatch) {
         dispatch(
             requestAllFundsOnSearch(options,data)
         );
         callApi(url, REQUESTS.POST, HEADERS,data).then((response) => {
-            console.log('response isnide post',response);
+
             dispatch(
                 receivedAllFundsOnSearch(response)
             );
@@ -35,6 +34,7 @@ export default getAllFundsOnSearch;
 
 
 const requestAllFundsOnSearch = (options) => {
+    
     return {
         type: GET_ALL_FUNDS_PENDING_ON_SEARCH,
         payload: {

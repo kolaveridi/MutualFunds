@@ -5,7 +5,7 @@ class Fund extends React.Component{
     render(){
         const {name,rating,category,return_3yr,return_5yr,minimum_investment}=this.props.data;
 
-        console.log('native',this.props.data);
+        
         return(
          <View>
              <Card

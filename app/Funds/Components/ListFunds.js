@@ -5,7 +5,7 @@ class ListFunds extends React.PureComponent{
 
 
     render(){
-        console.log('this.props',this.props);
+        
         return(
            <ScrollView>
            <View style={styles.container}>

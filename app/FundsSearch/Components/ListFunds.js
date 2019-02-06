@@ -3,7 +3,7 @@ import Fund from './Fund';
 import { StyleSheet, Text, View ,ScrollView} from 'react-native';
 class ListFunds extends React.Component{
     render(){
-        console.log("hmmmmm",this.props.data);
+        
         return(
             <ScrollView>
            <View>

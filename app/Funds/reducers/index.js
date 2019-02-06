@@ -18,8 +18,7 @@ const INITIAL_STATE={
 };
 
 export default function FundsReducer(state=INITIAL_STATE,action={}){
-    console.log('Inside reducer',state);
-    console.log('actionTypes',action);
+    
   switch(action.type){
 
       case GET_ALL_FUNDS_FAILED:{

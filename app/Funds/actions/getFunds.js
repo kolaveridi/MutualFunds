@@ -16,13 +16,13 @@ const getUrl = (options) => {
 import callApi from '../../../callApi';
 const getAllFunds = (options = {}) => {
     const url = getUrl(options);
-    console.log('url',url);
+
     return function(dispatch) {
         dispatch(
             requestAllFunds(options)
         );
         callApi(url, REQUESTS.GET, HEADERS).then((response) => {
-            console.log('response',response);
+            
             dispatch(
                 receivedAllFunds(response)
             );

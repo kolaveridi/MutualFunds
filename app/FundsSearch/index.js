@@ -6,9 +6,9 @@ import ListFunds from './Components/ListFunds';
 import {
     connect
 } from 'react-redux';
-
+import Loader from '../Loader';
 function mapStateToProps(state) {
-    console.log('state inside search is ',state);
+    
     return {
         searchfunds: state.searchfunds
     };
@@ -19,20 +19,40 @@ function mapDispatchToProps(dispatch) {
 
     return {
         getAllFundsOnSearch: (options = {},data) => {
-             console.log('God is',data);
             dispatch(getAllFundsOnSearch(options,data));
         }
 
     };
 }
 class SearchFunds extends React.Component{
+    constructor(props){
+        super(props)
+            this.state={
+                visible:false
+            };
+        }
+
+    componentWillReceiveProps(nextProps){
+          if(nextProps.searchfunds.funds.pending ===true){
+              this.setState({
+                  visible:true
+              });
+          }
+          else if(nextProps.searchfunds.funds.pending===false || nextProps.searchfunds.funds.pending===null){
+              this.setState({
+                  visible:false
+              });
+          }
+
+
+    }
     onInputChange=(term)=>{
         let data={
-            authorization:'Token a41d2b39e3b47412504509bb5a1b66498fb1f43a',
+            authorization:'componentWillReceivePropsToken a41d2b39e3b47412504509bb5a1b66498fb1f43a',
             search:term
         };
 
-        this.props.getAllFundsOnSearch('abc',data);
+        this.props.getAllFundsOnSearch('',data);
     }
     render(){
 
@@ -40,6 +60,7 @@ class SearchFunds extends React.Component{
         return(
          <View>
             <SearchBar onInputChange={this.onInputChange}/>
+            <Loader loading={this.state.visible}/>
             <ListFunds data={this.props.searchfunds} />
 
          </View>

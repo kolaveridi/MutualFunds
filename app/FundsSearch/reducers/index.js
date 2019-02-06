@@ -1,7 +1,7 @@
 import{
     GET_ALL_FUNDS_ON_SEARCH,
-    GET_ALL_FUNDS_FAILED_ON_SAERCH,
-    GET_ALL_FUNDS_PENDING_ON_SAERCH
+    GET_ALL_FUNDS_FAILED_ON_SEARCH,
+    GET_ALL_FUNDS_PENDING_ON_SEARCH
 }
 from '../actionTypes';
 
@@ -20,7 +20,7 @@ const INITIAL_STATE={
 export default function FundsSearchReducer(state=INITIAL_STATE,action={}){
   switch(action.type){
 
-      case GET_ALL_FUNDS_FAILED_ON_SAERCH:{
+      case GET_ALL_FUNDS_FAILED_ON_SEARCH:{
         return{
           ...state,
            funds:{
@@ -31,7 +31,7 @@ export default function FundsSearchReducer(state=INITIAL_STATE,action={}){
           }
         };
       }
-      case GET_ALL_FUNDS_PENDING_ON_SAERCH:
+      case GET_ALL_FUNDS_PENDING_ON_SEARCH:
       {
         let {options}=action.payload;
 

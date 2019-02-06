@@ -6,6 +6,7 @@ import Funds from './app/Funds';
 import SearchFunds from './app/FundsSearch';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
+import Card from './app/FundsSearch/Components/Card';
 const Tab =  createBottomTabNavigator({
   Home: Funds,
   Settings: SearchFunds,

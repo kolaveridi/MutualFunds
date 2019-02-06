@@ -8,13 +8,14 @@ class Fund extends React.Component{
 
 
             <View style={styles.container}>
-               <Text>MoneyControlCode : {money_control_code}</Text>
-                <Text>ExpenseRatio : {expense_ratio} </Text>
-                <Text>PlanType : {plan_type}</Text>
-                <Text>Net Asset Value :{nav}</Text>
-                <Text>Last Day Net Asset Value:{last_day_nav}</Text>
-                <Text>Dividend Type:{dividend_type_text}</Text>
-                <Text>Launch Date:{launch_date}</Text>
+
+               <Text style={styles.text}>MoneyControlCode : {money_control_code}</Text>
+                <Text style={styles.text}>ExpenseRatio : {expense_ratio} </Text>
+                <Text style={styles.text}>PlanType : {plan_type}</Text>
+                <Text style={styles.text}>Net Asset Value :{nav}</Text>
+                <Text style={styles.text}>Last Day Net Asset Value:{last_day_nav}</Text>
+                <Text style={styles.text}>Dividend Type:{dividend_type_text}</Text>
+                <Text style={styles.text}>Launch Date:{launch_date}</Text>
              </View>
 
         );
@@ -28,10 +29,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'grey',
+    backgroundColor:'#68a0cf',
     width: 250,
     height: 200,
     fontSize: 20,
-    marginTop:50
-  }
+    marginTop:50,
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    paddingTop:20,
+    paddingBottom:20,
+    overflow: 'hidden'
+
+},
+text:{
+    color:'#fff',
+      textAlign:'center',
+
+}
 });

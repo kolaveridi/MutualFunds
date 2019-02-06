@@ -9,8 +9,8 @@ import {
 
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import FundsReducer from './app/Funds/reducers;
-import FundsSearchReducer from './app/FundsSearchReducer/reducers';
+import FundsReducer from './app/Funds/reducers';
+import FundsSearchReducer from './app/FundsSearch/reducers';
 
 const reducer = combineReducers({
     funds:FundsReducer,

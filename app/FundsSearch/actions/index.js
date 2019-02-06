@@ -1,7 +1,7 @@
 import {
-    GET_ALL_FUNDS_PENDING_ON_SAERCH,
-    GET_ALL_FUNDS_FAILED_ON_SAERCH,
-    GET_ALL_FUNDS_FAILED_ON_SAERCH,
+    GET_ALL_FUNDS_PENDING_ON_SEARCH,
+    GET_ALL_FUNDS_FAILED_ON_SEARCH,
+    GET_ALL_FUNDS_ON_SEARCH,
 } from '../actionTypes';
 import {
     REQUESTS,
@@ -9,20 +9,21 @@ import {
 }
 from '../../../config';
 const getUrl = (options) => {
-    let url ='https://api.piggy.co.in/v1/mf/?key=118656INF204K01E05';
+    let url ='https://api.piggy.co.in/v2/mf/search/';
     return url;
 
 };
 import callApi from '../../../callApi';
-const getAllFundsOnSearch = (options = {}) => {
+const getAllFundsOnSearch = (options = {},data) => {
     const url = getUrl(options);
     console.log('url',url);
+    console.log('data inside actio is ',data);
     return function(dispatch) {
         dispatch(
-            requestAllFundsOnSearch(options)
+            requestAllFundsOnSearch(options,data)
         );
-        callApi(url, REQUESTS.GET, HEADERS).then((response) => {
-            console.log('response',response);
+        callApi(url, REQUESTS.POST, HEADERS,data).then((response) => {
+            console.log('response isnide post',response);
             dispatch(
                 receivedAllFundsOnSearch(response)
             );
@@ -30,12 +31,12 @@ const getAllFundsOnSearch = (options = {}) => {
     };
 };
 
-export default getAllFunds;
+export default getAllFundsOnSearch;
 
 
 const requestAllFundsOnSearch = (options) => {
     return {
-        type: GET_ALL_FUNDS_PENDING_ON_SAERCH,
+        type: GET_ALL_FUNDS_PENDING_ON_SEARCH,
         payload: {
             options
         }
@@ -55,7 +56,7 @@ const receivedAllFundsOnSearch = (response) => {
 
 const requestAllFundsFailedOnSearch = (error) => {
     return {
-        type: GET_ALL_FUNDS_FAILED_ON_SAERCH,
+        type: GET_ALL_FUNDS_FAILED_ON_SEARCH,
         error
     };
 };

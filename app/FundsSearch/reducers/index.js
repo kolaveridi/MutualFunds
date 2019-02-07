@@ -49,6 +49,7 @@ export default function FundsSearchReducer(state=INITIAL_STATE,action={}){
       {
          let data;
          data=action.payload.response.data;
+
         return{
           ...state,
           funds:{

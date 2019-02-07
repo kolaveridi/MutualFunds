@@ -10,6 +10,7 @@ import Card from './app/FundsSearch/Components/Card';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from "react-native-vector-icons/Ionicons";
 
+
 const Tab =  createBottomTabNavigator({
   Home: Funds,
   Search: SearchFunds,
@@ -23,7 +24,7 @@ class App extends React.Component {
     console.disableYellowBox=true;
     return (
         <Provider store={store}>
-           <TabNavigation/>
+           <SearchFunds/>
         </Provider>
     );
   }

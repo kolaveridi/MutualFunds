@@ -7,8 +7,9 @@ import {
     connect
 } from 'react-redux';
 import Loader from '../Loader';
+import TopBarNavigation from './TopBarNav';
 function mapStateToProps(state) {
-    
+
     return {
         searchfunds: state.searchfunds
     };
@@ -56,14 +57,15 @@ class SearchFunds extends React.Component{
     }
     render(){
 
-
+          console.log('searchfunds',this.props.searchfunds);
+          /*
+           <Loader loading={this.state.visible}/>
+            <ListFunds data={this.props.searchfunds} /> */
         return(
-         <View>
-            <SearchBar onInputChange={this.onInputChange}/>
-            <Loader loading={this.state.visible}/>
-            <ListFunds data={this.props.searchfunds} />
-
-         </View>
+             <View style={{ flex: 1 }}>
+             <SearchBar onInputChange={this.onInputChange}/>
+             <TopBarNavigation/>
+             </View>
 
         );
     }

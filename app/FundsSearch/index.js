@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SearchBar from './SearchBar';
+import SearchBarComponent from './SearchBar';
 import getAllFundsOnSearch from './actions';
 import ListFunds from './Components/ListFunds';
 import {
@@ -29,16 +29,19 @@ class SearchFunds extends React.Component{
     constructor(props){
         super(props)
             this.state={
-                    visible:false,   
+                    visible:false,
                     equity:[],
                     debt:[],
                     hybrid:[],
-                    commodities:[]
+                    commodities:[],
+
                 }
             };
-        
+
+
 
     componentWillReceiveProps(nextProps){
+         console.log('log1');
           console.log('nextProps',nextProps);
           let newEquity=[];
           let newDebit=[];
@@ -61,44 +64,48 @@ class SearchFunds extends React.Component{
                         newCommodities.push(item);
                     }
 
+
                 }
 
           }
+
           this.setState({
               equity:newEquity,
               debt:newDebit,
               commodities:newCommodities,
-              hybrid:newHybrid
+              hybrid:newHybrid,
+
           });
-          
+
     }
     onInputChange=(term)=>{
         let data={
-            authorization:'componentWillReceivePropsToken a41d2b39e3b47412504509bb5a1b66498fb1f43a',
+            authorization:'Token a41d2b39e3b47412504509bb5a1b66498fb1f43a',
             search:term
         };
 
         this.props.getAllFundsOnSearch('',data);
     }
+    ComponentDidUpate(){
+       console.log('log2');
+    }
     render(){
 
-          console.log('searchfunds',this.props.searchfunds);
-          console.log("lolololol",this.state.equity);
-          console.log("hybrid",this.state.hybrid);
-          console.log("debt",this.state.hybrid);
-          console.log("commodities",this.state.commodities);
-          /*
-           <Loader loading={this.state.visible}/>
-            <ListFunds data={this.props.searchfunds} /> */
+           console.log('state lol ',this.state.funds);
+
         return(
-             <View style={{ flex: 1 }}>
-             <SearchBar onInputChange={this.onInputChange}/>
-             <TopBarNavigation 
+             <View style={{ flex: 1,backgroundColor:'white' }}>
+             <View style={{marginTop:10}}>
+             <SearchBarComponent onInputChange={this.onInputChange}/>
+             </View>
+
+             <TopBarNavigation
                 data={this.props.searchfunds}
                 equity={this.state.equity}
                 debt={this.state.debt}
                 commodities={this.state.debt}
                 hybrid={this.state.hybrid}
+
                 />
              </View>
 

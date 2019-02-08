@@ -24,7 +24,7 @@ class App extends React.Component {
     console.disableYellowBox=true;
     return (
         <Provider store={store}>
-           <SearchFunds/>
+           <TabNavigation/>
         </Provider>
     );
   }

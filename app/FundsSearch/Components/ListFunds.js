@@ -8,12 +8,9 @@ class ListFunds extends React.Component{
             <ScrollView>
            <View>
              {
-                 this.props
-                 && this.props.data
-                 && this.props.data.funds
-                 && this.props.data.funds.data
-                 && this.props.data.funds.data.search_results &&
-                 this.props.data.funds.data.search_results.map((item)=>{
+                 
+            
+                 this.props &&  this.props.data.map((item)=>{
                      return(
                          <Fund
                            data={item}

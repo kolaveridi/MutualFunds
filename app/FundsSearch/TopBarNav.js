@@ -17,14 +17,15 @@ const ROUTES = {
 
 };
 const ROUTESTACK = [
-	{ text: 'Equity', title: 'EquityFunds' },
-	{ text: 'Debt', title: 'DebtFunds' },
-	{ text: 'Hybrid', title: 'HybridFunds' },
-    { text:'Commodity',title: 'CommodityFunds'},
+	{ text: 'Equity',   Component: 'EquityFunds' },
+	{ text: 'Debt',     Component: 'DebtFunds' },
+	{ text: 'Hybrid',   Component: 'HybridFunds' },
+    { text:'Commodity', Component: 'CommodityFunds'},
 
 ];
 
 export default class TopBarNaviagtion extends React.Component {
+	
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
@@ -34,8 +35,15 @@ export default class TopBarNaviagtion extends React.Component {
 
     					routeStack={ROUTESTACK}
     					renderScene={(route, i) => {
-    						let Component = ROUTES[route.title];
-    						return <Component index={i} />;
+    						let Component = ROUTES[route.Component];
+							return <Component 
+									  index={i}
+									   data={this.props.data}
+									   equity={this.props.equity}
+									   debt={this.props.debt}
+									   hybrid={this.props.hybrid}
+									   commodities={this.props.commodities}
+									   />;
     					}}
     					headerStyle={[styles.headerStyle, { paddingTop: 40 }]}
     					labelStyle={styles.labelStyle}
